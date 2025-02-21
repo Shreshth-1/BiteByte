@@ -1,0 +1,161 @@
+.navBar{
+    background-color: #E85A4F;
+    background-color: #46344E;
+    background-color: #96ef06;
+    background-color: #AC3B61;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.3); 
+
+    color:azure;
+    font-family: peralta;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    width: 100vw;
+    height:50px;
+    top:0;
+    left:0;
+    position: fixed;
+
+    display: flex;
+    justify-content: center;
+
+}
+
+.logo{
+    font-size: 30px;
+    padding-top: 5px;
+}
+
+.outerBody{
+    background:hsla(0,0%,73%,0.1);
+    background-color: hsla(0,0%,73%,0.1);
+    background-color: rgb(223, 213, 218);
+    background-color: #f0e4ff;
+}
+
+.leftBOX{
+    background-color: #123C69;
+    width: 35vw; 
+    height: 440px; 
+    margin: 70px auto; 
+    padding: 20px;
+    border-radius: 10px; 
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);  
+
+}
+
+.rightBOX{
+    background-color: #123C69;
+    width: 35vw; 
+    height: 440px; 
+    margin: 70px auto; 
+    padding: 20px;
+    border-radius: 10px; 
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.recomBOX{
+    background-color: #123C69;
+    width: 10vw; 
+    height: 440px; 
+    margin: 70px auto; 
+    padding: 20px;
+    border-radius: 10px; 
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+
+.mainBODY{
+    display: flex;
+    justify-content:space-between;
+}
+
+.img{
+    background-color: azure;
+    width: 30vw; 
+    height: 250px; 
+    margin: 10px auto; 
+    padding: 20px;
+    border-radius: 10px; 
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.nutr{
+    background-color: azure;
+    width: 30vw; 
+    height: 70px; 
+    margin: 20px auto; 
+    padding: 20px;
+    border-radius: 10px; 
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.title{
+    background-color: azure;
+    width: 30vw; 
+    height: 10px; 
+    margin: 10px auto; 
+    padding: 20px;
+    border-radius: 10px; 
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.ing{
+    background-color: azure;
+    width: 30vw; 
+    height: 30px; 
+    margin: 10px auto; 
+    padding: 20px;
+    border-radius: 10px; 
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+
+.recipe{
+    background-color: azure;
+    width: 30vw; 
+    height: 180px; 
+    margin: 10px auto; 
+    padding: 20px;
+    border-radius: 10px; 
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+
+.ref{
+    background-color: azure;
+    width: 30vw; 
+    height: 10px; 
+    margin: 10px auto; 
+    padding: 20px;
+    border-radius: 10px; 
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.text{
+    font-family: peralta ;
+    font-size: 20;
+    color: #E85A4F;
+}
+
+.scrollBox{
+    background-color: azure;
+    width: 60px; 
+    height: 60px; 
+    margin: 10px auto; 
+    padding: 20px;
+    border-radius: 10px; 
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.peralta-regular {
+    font-family: "Peralta", serif;
+    font-weight: 400;
+    font-style: normal;
+}
