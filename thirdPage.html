@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Third Page</title>
+    <style>
+        .header {
+          height: 50px;
+          width: 100%;
+          border: 1px solid black;
+        }
+        .header p {
+          text-align: center;
+          font-size: 30px;
+          margin: 0;
+        }
+        .button {
+          border: 1px solid black;
+          display: flex;
+          justify-content: flex-start;
+          margin-top: 20px;
+        }
+        .button button {
+          padding: 10px 20px;
+          font-size: 16px;
+          margin-left: 25px;
+        }
+        .display-box {
+          border: 1px solid black;
+          height: 800px;
+          width: 80%;
+          margin: 20px;
+          margin-left: 200px;
+          margin-right: 100px;
+          overflow-y: scroll;
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          grid-template-rows: repeat(4, 300px); /* Increased height */
+          gap: 10px;
+          transition: margin-right 0.3s;
+        }
+        .menu-item {
+          width: calc(100% - 20px);
+          height: 300px; /* Increased height */
+          border: 1px solid black;
+          margin: 10px;
+        }
+        .menu-item img {
+          width: 100%;
+          height: 100%;
+        }
+        /* Custom scrollbar styles */
+        .display-box::-webkit-scrollbar {
+          width: 0px; /* Adjust the width of the scrollbar */
+        }
+        .side-box {
+          position: absolute;
+          top: 123px;
+          right: -2000px; /* Adjusted to ensure it is hidden off-screen */
+          width: 400px;
+          height: 600px;
+          background-color: #fff;
+          border: 1px solid black;
+          padding: 10px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          transition: right 0.3s;
+        }
+        .side-box.active {
+          right: 20px;
+        }
+        .side-box .close-btn {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          background-color: red;
+          color: white;
+          border: none;
+          padding: 5px;
+          cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <p>Meal Finder</p>
+    </div>
+    <div class="button">
+        <button onclick="showSideBox('sideBox1')">Button 1</button>
+        <button onclick="showSideBox('sideBox2')">Button 2</button>
+        <button>Button 3</button>
+    </div>
+    <div class="side-box" id="sideBox1">
+        <button class="close-btn" onclick="hideSideBox('sideBox1')">X</button>
+        <!-- Content for the side box 1 -->
+    </div>
+    <div class="side-box" id="sideBox2">
+        <button class="close-btn" onclick="hideSideBox('sideBox2')">X</button>
+        <!-- Content for the side box 2 -->
+    </div>
+    <div class="display-box" id="displayBox">
+        <!-- 4 columns and 4 rows of menu items -->
+        <div class="menu-item"><img src="image1.jpg" alt="Menu Item 1"></div>
+        <div class="menu-item"><img src="image2.jpg" alt="Menu Item 2"></div>
+        <div class="menu-item"><img src="image3.jpg" alt="Menu Item 3"></div>
+        <div class="menu-item"><img src="image4.jpg" alt="Menu Item 4"></div>
+        <div class="menu-item"><img src="image5.jpg" alt="Menu Item 5"></div>
+        <div class="menu-item"><img src="image6.jpg" alt="Menu Item 6"></div>
+        <div class="menu-item"><img src="image7.jpg" alt="Menu Item 7"></div>
+        <div class="menu-item"><img src="image8.jpg" alt="Menu Item 8"></div>
+        <div class="menu-item"><img src="image9.jpg" alt="Menu Item 9"></div>
+        <div class="menu-item"><img src="image10.jpg" alt="Menu Item 10"></div>
+        <div class="menu-item"><img src="image11.jpg" alt="Menu Item 11"></div>
+        <div class="menu-item"><img src="image12.jpg" alt="Menu Item 12"></div>
+        <div class="menu-item"><img src="image13.jpg" alt="Menu Item 13"></div>
+        <div class="menu-item"><img src="image14.jpg" alt="Menu Item 14"></div>
+        <div class="menu-item"><img src="image15.jpg" alt="Menu Item 15"></div>
+        <div class="menu-item"><img src="image16.jpg" alt="Menu Item 16"></div>
+    </div>
+    <script>
+        function showSideBox(sideBoxId) {
+            // Hide all side boxes
+            document.querySelectorAll('.side-box').forEach(box => {
+                box.classList.remove('active');
+            });
+            // Show the selected side box
+            document.getElementById(sideBoxId).classList.add('active');
+            document.getElementById('displayBox').style.marginRight = '430px';
+        }
+
+        function hideSideBox(sideBoxId) {
+            document.getElementById(sideBoxId).classList.remove('active');
+            document.getElementById('displayBox').style.marginRight = '100px';
+        }
+
+        // Close side boxes when clicking outside
+        document.addEventListener('click', function(event) {
+            const sideBoxes = document.querySelectorAll('.side-box');
+            const buttons = document.querySelectorAll('.button button');
+            let clickedInside = false;
+            sideBoxes.forEach(box => {
+                if (box.contains(event.target)) {
+                    clickedInside = true;
+                }
+            });
+            buttons.forEach(button => {
+                if (button.contains(event.target)) {
+                    clickedInside = true;
+                }
+            });
+            if (!clickedInside) {
+                sideBoxes.forEach(box => {
+                    box.classList.remove('active');
+                });
+                document.getElementById('displayBox').style.marginRight = '100px';
+            }
+        });
+    </script>
+</body>
+</html>
