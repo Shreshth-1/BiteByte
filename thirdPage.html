@@ -20,11 +20,32 @@
           display: flex;
           justify-content: flex-start;
           margin-top: 20px;
+          position: relative;
         }
         .button button {
           padding: 10px 20px;
           font-size: 16px;
           margin-left: 25px;
+          cursor: pointer;
+        }
+        .dropdown {
+          display: none;
+          position: absolute;
+          top: 100%; /* Position it just below the button */
+          left: 15%;
+          background-color: #fff;
+          border: 1px solid black;
+          z-index: 1;
+        }
+        .dropdown a {
+          display: block;
+          padding: 10px;
+          text-decoration: none;
+          color: black;
+          border-bottom: 1px solid #ddd;
+        }
+        .dropdown a:hover {
+          background-color: #f1f1f1;
         }
         .display-box {
           border: 1px solid black;
@@ -57,17 +78,19 @@
         .side-box {
           position: absolute;
           top: 123px;
-          right: -2000px; /* Adjusted to ensure it is hidden off-screen */
+          right: -500px; /* Adjusted to ensure it is hidden off-screen */
           width: 400px;
           height: 600px;
           background-color: #fff;
           border: 1px solid black;
           padding: 10px;
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-          transition: right 0.3s;
+          transition: right 0.3s, opacity 0.3s;
+          opacity: 0; /* Make it fully transparent when hidden */
         }
         .side-box.active {
           right: 20px;
+          opacity: 1; /* Make it fully visible when active */
         }
         .side-box .close-btn {
           position: absolute;
@@ -88,7 +111,34 @@
     <div class="button">
         <button onclick="showSideBox('sideBox1')">Button 1</button>
         <button onclick="showSideBox('sideBox2')">Button 2</button>
-        <button>Button 3</button>
+        <button onclick="toggleDropdown('dropdown1')">Button 3</button>
+        <div class="dropdown" id="dropdown1">
+            <a href="#" onclick="showSubDropdown('dropdown2')">Protein</a>
+            <a href="#" onclick="showSubDropdown('dropdown3')">Carbohydrate</a>
+            <a href="#" onclick="showSubDropdown('dropdown4')">Fat</a>
+            <a href="#" onclick="showSubDropdown('dropdown5')">Cook Time</a>
+            <a href="#" onclick="showSubDropdown('dropdown6')">Calories</a>
+        </div>
+        <div class="dropdown" id="dropdown2">
+            <a href="#">High to Low</a>
+            <a href="#">Low to High</a>
+        </div>
+        <div class="dropdown" id="dropdown3">
+            <a href="#">High to Low</a>
+            <a href="#">Low to High</a>
+        </div>
+        <div class="dropdown" id="dropdown4">
+            <a href="#">High to Low</a>
+            <a href="#">Low to High</a>
+        </div>
+        <div class="dropdown" id="dropdown5">
+            <a href="#">High to Low</a>
+            <a href="#">Low to High</a>
+        </div>
+        <div class="dropdown" id="dropdown6">
+            <a href="#">High to Low</a>
+            <a href="#">Low to High</a>
+        </div>
     </div>
     <div class="side-box" id="sideBox1">
         <button class="close-btn" onclick="hideSideBox('sideBox1')">X</button>
@@ -153,6 +203,49 @@
                     box.classList.remove('active');
                 });
                 document.getElementById('displayBox').style.marginRight = '100px';
+            }
+        });
+
+        function toggleDropdown(dropdownId) {
+            // Hide all dropdowns
+            document.querySelectorAll('.dropdown').forEach(dropdown => {
+                dropdown.style.display = 'none';
+            });
+            // Toggle the selected dropdown
+            const dropdown = document.getElementById(dropdownId);
+            if (dropdown.style.display === 'block') {
+                dropdown.style.display = 'none';
+            } else {
+                dropdown.style.display = 'block';
+            }
+        }
+
+        function showSubDropdown(dropdownId) {
+            // Hide all dropdowns
+            document.querySelectorAll('.dropdown').forEach(dropdown => {
+                dropdown.style.display = 'none';
+            });
+            // Show the selected sub-dropdown
+            document.getElementById(dropdownId).style.display = 'block';
+        }
+
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', function(event) {
+            const dropdowns = document.querySelectorAll('.dropdown');
+            const button3 = document.querySelector('.button button:nth-child(3)');
+            let clickedInside = false;
+            dropdowns.forEach(dropdown => {
+                if (dropdown.contains(event.target)) {
+                    clickedInside = true;
+                }
+            });
+            if (button3.contains(event.target)) {
+                clickedInside = true;
+            }
+            if (!clickedInside) {
+                dropdowns.forEach(dropdown => {
+                    dropdown.style.display = 'none';
+                });
             }
         });
     </script>
