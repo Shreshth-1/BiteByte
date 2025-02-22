@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Third Page</title>
     <style>
+      body{
+        background: url('backg2.jpg') no-repeat center center fixed;
+        background-size: cover;
+      }
+
         .header {
             height: 50px;
             width: 100%;
@@ -48,7 +53,9 @@
         }
 
         .display-box {
-            border: 1px solid black;
+          background-color: rgba(131, 147, 66, 0.7);
+          box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);  
+
             height: 800px;
             width: 80%;
             margin: 20px;
@@ -140,11 +147,34 @@
             padding: 5px;
             cursor: pointer;
         }
+        .header{
+          box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.3); 
+
+    color:azure;
+    font-family: peralta;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    width: 100vw;
+    height:50px;
+    top:0;
+    left:0;
+    position: fixed;
+
+    display: flex;
+    justify-content: center;
+    height: 180px ; 
+    width: 180px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3); 
+    border-radius: 95px;
+    position: relative;
+    left: 45%;
+ }
     </style>
 </head>
 <body>
 <div class="header">
-    <p>Meal Finder</p>
+  <img src="erasebg-transformed.png" alt="logo">
 </div>
 <div class="display-box" id="displayBox">
     <!-- Recipes will be displayed here -->
