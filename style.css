@@ -1,0 +1,76 @@
+/* General Page Styling */
+body {
+    background-color: #FBFAD3;
+    font-family: Arial, sans-serif;
+    color: #36622B;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+.header {
+    background-color: #5e8d52;
+    color: #eeeedc;
+    padding: 15px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Input Section */
+.input-container {
+    display: flex;
+    gap: 10px;
+    padding: 20px;
+}
+
+input[type="text"] {
+    background-color: #C6E377;
+    border: 2px solid #36622B;
+    padding: 8px;
+    color: #36622B;
+    font-size: 16px;
+    width: 250px;
+}
+
+/* Buttons */
+button {
+    background-color: #729D39;
+    color: #FBFAD3;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #36622B;
+}
+
+/* Selected Ingredients Panel */
+.selected-ingredients-container {
+    background-color: #C6E377;
+    border: 2px solid #36622B;
+    padding: 10px;
+    margin: 20px;
+    color: #36622B;
+    font-size: 18px;
+}
+
+/* Recipe Suggestions */
+.recipe-box {
+    background-color: #FBFAD3;
+    border: 2px solid #36622B;
+    padding: 15px;
+    font-size: 18px;
+    margin: 20px;
+}
+
+/* Next Button Section */
+.next-btn {
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+}

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SearchPage</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: url('backg2.jpg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-top: 20px; /* Add margin to avoid overlap with fixed header */
+        }
+        .footer {
+            margin-top: 10px;
+            text-align: center;
+        }
+        .heading_Ingredients {
+            width: 100%;
+            height: 70px;
+            margin: auto;
+            text-align: center;
+        }
+        .selected-Ingredients {
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            margin-top: 30px;
+            overflow-y: auto; /* Enables vertical scrolling */
+            max-height: 350px; /* Ensures scrolling when content overflows */
+            padding: 10px; /* Adds some spacing */
+        }
+        .next-button {
+            border: 1px solid black;
+            margin-right: auto;
+            width: 50%;
+            height: 50px;
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer; /* Changes cursor to indicate clickability */
+            transition: background-color 0.3s;
+        }
+        .next-button:hover {
+            background-color: #d5d5d5; /* Darker blue on hover */
+        }
+        .next-button:active {
+            background-color: #004099; /* Even darker blue when clicked */
+        }
+        .search-container {
+            width: 465px;
+            height: 140px;
+            margin: 5px;
+            position: relative;
+            /*margin-bottom: 20px;*/
+        }
+        .search-container input {
+            margin-right: 10px;
+            font-size: 1.2em; /* Increase font size */
+            padding: 10px; /* Increase padding */
+        }
+        .search-container button {
+            font-size: 1.2em; /* Increase font size */
+            padding: 10px 20px; /* Increase padding */
+        }
+        .suggestion-item {
+            box-shadow: 1px 1px aliceblue;
+        }
+        .left-box {
+            display: inline-block;
+            width: 65%; /* 25% of the viewport width */
+            height: 60vh; /* 50% of the viewport height */
+            margin: 5px;
+            margin-top: 20px;
+            border: 1px solid black;
+        }
+        .suggested-meals {
+            border: 1px solid black;
+            width: 97%;
+            height: 375px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4 columns */
+            gap: 15px; /* More spacing between items */
+            padding: 10px;
+            overflow-y: auto; /* Enables vertical scrolling */
+            max-height: 400px; /* Adjust height for scrollability */
+            scrollbar-width: thin; /* Firefox scrollbar */
+            scrollbar-color: #ccc transparent; /* Custom scrollbar color */
+        }
+        .suggested-meals::-webkit-scrollbar {
+            width: 8px;
+        }
+        .suggested-meals::-webkit-scrollbar-thumb {
+            background-color: #aaa;
+            border-radius: 5px;
+        }
+        .recipe-card {
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #fff;
+            text-align: center;
+            padding: 10px;
+            transition: transform 0.3s;
+            width: 180px;  /* Make the card square */
+            height: 180px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .recipe-card:hover {
+            transform: scale(1.05);
+        }
+        .recipe-image {
+            width: 100%;
+            height: 130px; /* Adjust height to keep image square */
+            object-fit: cover; /* Ensures the image fills the area properly */
+            border-bottom: 1px solid #ddd;
+        }
+        .recipe-name {
+            font-size: 16px;
+            font-weight: bold;
+            padding: 5px;
+        }
+        .right-box {
+            /*margin-left: auto; !* Align the right box to the right *!*/
+            background-color: rgba(164, 180, 101, 0.7);
+            display: inline-block;
+            width: 20%; /* 25% of the viewport width */
+            height: 75vh; /* 50% of the viewport height */
+            margin: 5px;
+            float: right;
+            margin-right: 100px;
+            margin-top: -100px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+            align-items: center;
+        }
+        .selected-Ingredients {
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+        }
+        .ingredient-item {
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+            font-size: 20px;
+        }
+        .delete-button {
+            float: right;
+        }
+        .next-button {
+            margin-left: auto; /* Align the next button to the right */
+            font-size: 2em; /* Increase font size */
+            padding: 10px 20px; /* Increase padding */
+        }
+        .website-header {
+            width: 100%;
+            height: 80px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        .website-header h1 {
+            font-size: 2em; /* Increase font size */
+            margin: 0; /* Remove default margin */
+            padding: 10px; /* Add padding */
+        }
+        .checkbox-label {
+            font-size: 1.2em; /* Increase font size */
+        }
+        #tickBox {
+            width: 20px; /* Increase width */
+            height: 20px; /* Increase height */
+        }
+        .footer {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<div class="website-header">
+    
+    <img src="erasebg-transformed.png" alt="Logo" height="180px" width="180px" style="box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3); border-radius: 95px;">
+
+</div>
+
+<div class="search-container">
+    <input type="text" id="ingredientInput" placeholder="Type an ingredient..." autocomplete="off">
+    <button id="searchButton">Add Ingredient</button>
+    <div id="suggestions" class="autocomplete-suggestions"></div>
+</div>
+
+<div class="left-box">
+    <!-- Content for the first box -->
+    <div class="heading_Ingredients">
+        <p style="font-size: 23px; text-align: left">TRY SOMETHING NEW?</p>
+    </div>
+    <div class="suggested-meals">
+        <!-- Suggested meals content -->
+    </div>
+</div>
+<div class="right-box">
+    <!-- Content for the new box on the right side -->
+    <div class="heading_Ingredients">
+        <p style="font-size: 23px">SELECTED INGREDIENTS</p>
+    </div>
+    <div class="selected-Ingredients">
+        <!-- Selected ingredients content -->
+    </div>
+    <div class="next-button">
+        <p style="font-size: 35px">Next</p>
+    </div>
+</div>
+
+<!--<div class="footer">-->
+<!--    <input type="checkbox" id="tickBox">-->
+<!--    <label for="tickBox" class="checkbox-label">Add Few Items</label>-->
+<!--</div>-->
+<!--<div class="footer next-button">-->
+<!--    <button id="nextButton">Next</button>-->
+<!--</div>-->
+<!--<div class="footer">-->
+<!--    <img src="spaghetti.jpg" height="100px" width="140" style="margin-left: 10px;">-->
+<!--    <img src="pizza.jpg" height="100px" width="140" style="margin-left: 10px;">-->
+<!--    <img src="biriyani.jpg" height="100px" width="140" style="margin-left: 10px;">-->
+<!--</div>-->
+</body>
+<script src="foodApp.js"></script>
+</html>
